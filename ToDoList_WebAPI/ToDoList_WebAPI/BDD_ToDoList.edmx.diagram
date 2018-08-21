@@ -5,13 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="5686564283cb4496a8ead77d84950db6" Name="Diagram1">
-        <EntityTypeShape EntityType="ToDoListModel.Comments" Width="1.5" PointX="5.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ToDoListModel.Tasks" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="ToDoListModel.Users" Width="1.5" PointX="3.25" PointY="2.875" IsExpanded="true" />
-        <AssociationConnector Association="ToDoListModel.FK__Comments__IDTask__6754599E" ManuallyRouted="false" />
-        <AssociationConnector Association="ToDoListModel.FK__Comments__IDUser__66603565" ManuallyRouted="false" />
-        <AssociationConnector Association="ToDoListModel.FK__Tasks__IDUserCre__5FB337D6" ManuallyRouted="false" />
-        <AssociationConnector Association="ToDoListModel.Task_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ToDoListModel.Comments" Width="1.5" PointX="6.375" PointY="0.5" />
+        <EntityTypeShape EntityType="ToDoListModel.Tasks" Width="1.5" PointX="1.875" PointY="0.5" />
+        <EntityTypeShape EntityType="ToDoListModel.Users" Width="1.5" PointX="4.125" PointY="1" />
+        <AssociationConnector Association="ToDoListModel.FK__Comments__IDTask__778AC167" />
+        <AssociationConnector Association="ToDoListModel.FK__Comments__IDUser__76969D2E" />
+        <AssociationConnector Association="ToDoListModel.FK__Tasks__IDUserCre__6FE99F9F" />
+        <AssociationConnector Association="ToDoListModel.Task_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
