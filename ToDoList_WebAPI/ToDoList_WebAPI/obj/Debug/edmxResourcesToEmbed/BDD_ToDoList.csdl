@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ToDoListModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Comments">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Content" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="0" />
+    <Property Name="IDUser" Type="Int32" Nullable="false" />
+    <Property Name="IDTask" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Tasks" Relationship="Self.FK__Comments__IDTask__6754599E" FromRole="Comments" ToRole="Tasks" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Comments__IDUser__66603565" FromRole="Comments" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Tasks">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskState" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DeadLine" Type="DateTime" Precision="0" />
+    <Property Name="Note" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDUserCreator" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__IDTask__6754599E" FromRole="Tasks" ToRole="Comments" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Tasks__IDUserCre__5FB337D6" FromRole="Tasks" ToRole="Users" />
+    <NavigationProperty Name="Users1" Relationship="Self.Task_User" FromRole="Tasks" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Pwd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Comments" Relationship="Self.FK__Comments__IDUser__66603565" FromRole="Users" ToRole="Comments" />
+    <NavigationProperty Name="Tasks" Relationship="Self.FK__Tasks__IDUserCre__5FB337D6" FromRole="Users" ToRole="Tasks" />
+    <NavigationProperty Name="Tasks1" Relationship="Self.Task_User" FromRole="Users" ToRole="Tasks" />
+  </EntityType>
+  <Association Name="FK__Comments__IDTask__6754599E">
+    <End Role="Tasks" Type="Self.Tasks" Multiplicity="1" />
+    <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tasks">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="IDTask" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comments__IDUser__66603565">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comments">
+        <PropertyRef Name="IDUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tasks__IDUserCre__5FB337D6">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Tasks">
+        <PropertyRef Name="IDUserCreator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Task_User">
+    <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="ToDoListEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Comments" EntityType="Self.Comments" />
+    <EntitySet Name="Tasks" EntityType="Self.Tasks" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK__Comments__IDTask__6754599E" Association="Self.FK__Comments__IDTask__6754599E">
+      <End Role="Tasks" EntitySet="Tasks" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comments__IDUser__66603565" Association="Self.FK__Comments__IDUser__66603565">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Comments" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tasks__IDUserCre__5FB337D6" Association="Self.FK__Tasks__IDUserCre__5FB337D6">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Tasks" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="Task_User" Association="Self.Task_User">
+      <End Role="Tasks" EntitySet="Tasks" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
