@@ -29,6 +29,7 @@
         <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="Pwd" ColumnName="Pwd" />
           <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Speudo" ColumnName="Speudo" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

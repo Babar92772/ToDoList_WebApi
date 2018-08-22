@@ -10,22 +10,21 @@ namespace ToDoList_WebAPI.Controllers
     public class UserConnexionController : ApiController
     {
         //Retourne l'information si les identifiants envoyés sont existant dans la base de donner, pour la connexion
-        [Route("Connect/{mail}/{pwd}")]
-        public IHttpActionResult GetValdByMailAndPwd(string mail, string pwd)
+        [Route("Connect/{identifiant}/{pwd}")]
+        public IHttpActionResult GetValdByMailAndPwd(string identifiant, string pwd)
         {
             var contexte = new ToDoListEntities();
-            var User = contexte.Users.Where(n => n.Mail == mail & n.Pwd == pwd).FirstOrDefault();
-            bool retour;
-            if (User == null)
-            {
-                retour = false;
-            }
-            else
-            {
-                retour = true;
-            }
-
-            return Ok(retour);
+            var User = contexte.Users.Where(n => n.Mail == identifiant | n.Speudo == identifiant & n.Pwd == pwd).FirstOrDefault();
+            //bool retour;
+            //if (User == null)
+            //{
+            //    retour = false;
+            //}
+            //else
+            //{
+            //    retour = true;
+            //}
+            return Ok(User);
         }
 
         //[Route("")]

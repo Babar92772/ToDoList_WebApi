@@ -26,13 +26,7 @@ namespace ToDoList_WebAPI.Controllers
         //    return Ok(user);
         //}
 
-        [Route("Mail/{ID}")]
-        public IHttpActionResult GetMailById(int ID)
-        {
-            var contexte = new ToDoListEntities();
-            var user = contexte.Users.Where(n => n.ID == ID).FirstOrDefault();
-            return Ok(user.Mail);
-        }
+        
 
         [Route("ADD/{user}")]
         public IHttpActionResult Post(Users user)
@@ -63,7 +57,7 @@ namespace ToDoList_WebAPI.Controllers
             List<Comments> comments = contexte.Comments.Where(n => n.IDTask == ID).ToList();
             foreach (var item in comments)
             {
-                item.IDTask = 14786;
+                item.IDTask = 14785;
                 contexte.SaveChanges();
             }
             contexte.Users.Remove(user);

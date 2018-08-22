@@ -24,7 +24,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TaskState" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="CreateDate" Type="date" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
     <Property Name="DeadLine" Type="date" />
     <Property Name="Note" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="IDUserCreator" Type="int" Nullable="false" />
@@ -34,10 +34,11 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Speudo" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Mail" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Pwd" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Comments__IDTask__778AC167">
+  <Association Name="FK__Comments__IDTask__114A936A">
     <End Role="Tasks" Type="Self.Tasks" Multiplicity="1" />
     <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
     <ReferentialConstraint>
@@ -49,7 +50,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Comments__IDUser__76969D2E">
+  <Association Name="FK__Comments__IDUser__10566F31">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
     <ReferentialConstraint>
@@ -61,7 +62,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Task_User__IDTas__72C60C4A">
+  <Association Name="FK__Task_User__IDTas__0C85DE4D">
     <End Role="Tasks" Type="Self.Tasks" Multiplicity="1" />
     <End Role="Task_User" Type="Self.Task_User" Multiplicity="*" />
     <ReferentialConstraint>
@@ -73,7 +74,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Task_User__IDUse__73BA3083">
+  <Association Name="FK__Task_User__IDUse__0D7A0286">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="Task_User" Type="Self.Task_User" Multiplicity="*" />
     <ReferentialConstraint>
@@ -85,7 +86,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Tasks__IDUserCre__6FE99F9F">
+  <Association Name="FK__Tasks__IDUserCre__09A971A2">
     <End Role="Users" Type="Self.Users" Multiplicity="1" />
     <End Role="Tasks" Type="Self.Tasks" Multiplicity="*" />
     <ReferentialConstraint>
@@ -102,23 +103,23 @@
     <EntitySet Name="Task_User" EntityType="Self.Task_User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Comments__IDTask__778AC167" Association="Self.FK__Comments__IDTask__778AC167">
+    <AssociationSet Name="FK__Comments__IDTask__114A936A" Association="Self.FK__Comments__IDTask__114A936A">
       <End Role="Tasks" EntitySet="Tasks" />
       <End Role="Comments" EntitySet="Comments" />
     </AssociationSet>
-    <AssociationSet Name="FK__Comments__IDUser__76969D2E" Association="Self.FK__Comments__IDUser__76969D2E">
+    <AssociationSet Name="FK__Comments__IDUser__10566F31" Association="Self.FK__Comments__IDUser__10566F31">
       <End Role="Users" EntitySet="Users" />
       <End Role="Comments" EntitySet="Comments" />
     </AssociationSet>
-    <AssociationSet Name="FK__Task_User__IDTas__72C60C4A" Association="Self.FK__Task_User__IDTas__72C60C4A">
+    <AssociationSet Name="FK__Task_User__IDTas__0C85DE4D" Association="Self.FK__Task_User__IDTas__0C85DE4D">
       <End Role="Tasks" EntitySet="Tasks" />
       <End Role="Task_User" EntitySet="Task_User" />
     </AssociationSet>
-    <AssociationSet Name="FK__Task_User__IDUse__73BA3083" Association="Self.FK__Task_User__IDUse__73BA3083">
+    <AssociationSet Name="FK__Task_User__IDUse__0D7A0286" Association="Self.FK__Task_User__IDUse__0D7A0286">
       <End Role="Users" EntitySet="Users" />
       <End Role="Task_User" EntitySet="Task_User" />
     </AssociationSet>
-    <AssociationSet Name="FK__Tasks__IDUserCre__6FE99F9F" Association="Self.FK__Tasks__IDUserCre__6FE99F9F">
+    <AssociationSet Name="FK__Tasks__IDUserCre__09A971A2" Association="Self.FK__Tasks__IDUserCre__09A971A2">
       <End Role="Users" EntitySet="Users" />
       <End Role="Tasks" EntitySet="Tasks" />
     </AssociationSet>
