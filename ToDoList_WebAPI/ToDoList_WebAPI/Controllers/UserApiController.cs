@@ -44,11 +44,28 @@ namespace ToDoList_WebAPI.Controllers
             return Ok();
         }
 
+        [Route("EDIT/{user}")]
+        public IHttpActionResult Put(Users user)
+        {
+            var contexte = new ToDoListEntities();
+            var userEdit = contexte.Users.Where(n => n.ID == user.ID).FirstOrDefault();
+            userEdit.Mail = user.Mail;
+            userEdit.Pwd = user.Pwd;
+            contexte.SaveChanges();
+            return Ok();
+        }
+
         [Route("DEL/{ID}")]
         public IHttpActionResult Delete(int ID)
         {
             var contexte = new ToDoListEntities();
             var user = contexte.Users.Where(n => n.ID == ID).FirstOrDefault();
+            List<Comments> comments = contexte.Comments.Where(n => n.IDTask == ID).ToList();
+            foreach (var item in comments)
+            {
+                item.IDTask = 14786;
+                contexte.SaveChanges();
+            }
             contexte.Users.Remove(user);
             contexte.SaveChanges();
             return Ok();

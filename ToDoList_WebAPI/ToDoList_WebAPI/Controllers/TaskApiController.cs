@@ -47,16 +47,28 @@ namespace ToDoList_WebAPI.Controllers
             return Ok();
         }
 
-        //[Route("EDIT/{task}")]
-        //public IHttpActionResult PostEdit(Tasks task)
+        [Route("EDIT/{task}")]
+        public IHttpActionResult Put(Tasks task)
+        {
+            var contexte = new ToDoListEntities();
+            var taskEdit = contexte.Tasks.Where(n => n.ID == task.ID).FirstOrDefault();
+            taskEdit.TaskState = task.TaskState;
+            taskEdit.Note = task.Note;
+            taskEdit.DeadLine = task.DeadLine;
+            //contexte.Tasks.;
+            contexte.SaveChanges();
+            return Ok();
+        }
+
+        //[Route("EDIT/{id}/{taskState}/{note}/{deadLine}")]
+        //public IHttpActionResult Put(int id, string taskState, string note, DateTime deadLine)
         //{
         //    var contexte = new ToDoListEntities();
-        //    var taskEdit = contexte.Tasks.Where(n => n.ID == task.ID).FirstOrDefault();
-        //    taskEdit.TaskState = task.TaskState;
-        //    taskEdit.Note = task.Note;
-        //    taskEdit.DeadLine = task.DeadLine;
-        //    taskEdit.TaskState = task.TaskState;
-
+        //    var taskEdit = contexte.Tasks.Where(n => n.ID == id).FirstOrDefault();
+        //    taskEdit.TaskState = taskState;
+        //    taskEdit.Note = note;
+        //    taskEdit.DeadLine = deadLine;
+        //    //contexte.Tasks.;
         //    contexte.SaveChanges();
         //    return Ok();
         //}

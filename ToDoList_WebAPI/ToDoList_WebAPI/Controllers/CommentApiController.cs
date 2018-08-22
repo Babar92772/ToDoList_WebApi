@@ -36,6 +36,16 @@ namespace ToDoList_WebAPI.Controllers
             return Ok();
         }
 
+        [Route("EDIT/{Com}")]
+        public IHttpActionResult Put(Comments Com)
+        {
+            var contexte = new ToDoListEntities();
+            var comEdit = contexte.Comments.Where(n => n.ID == Com.ID).FirstOrDefault();
+            comEdit.Content = Com.Content;
+            contexte.SaveChanges();
+            return Ok();
+        }
+
         [Route("DEL/{ID}")]
         public IHttpActionResult Delete(int ID)
         {
