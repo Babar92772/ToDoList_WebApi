@@ -10,15 +10,15 @@ namespace ToDoList_WebAPI.Controllers
     public class CommentApiController : ApiController
     {
         // GET: CommentApi
-        [Route("{ID}")]
-        public IHttpActionResult Get(int ID)
+        [Route("{id}")]
+        public IHttpActionResult Get(int id)
         {
             var contexte = new ToDoListEntities();
-            var comment = contexte.Comments.Where(n => n.ID == ID).FirstOrDefault();
+            var comment = contexte.Comments.Where(n => n.ID == id).FirstOrDefault();
             return Ok(comment);
         }
 
-        [Route("{idtask}")]
+        [Route("Task/{idtask}")]
         public IHttpActionResult GetComByTask(int idtask)
         {
             var contexte = new ToDoListEntities();
@@ -35,7 +35,6 @@ namespace ToDoList_WebAPI.Controllers
 
             return Ok();
         }
-
 
         [Route("DEL/{ID}")]
         public IHttpActionResult Delete(int ID)

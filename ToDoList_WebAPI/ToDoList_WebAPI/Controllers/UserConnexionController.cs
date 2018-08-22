@@ -10,7 +10,7 @@ namespace ToDoList_WebAPI.Controllers
     public class UserConnexionController : ApiController
     {
         //Retourne l'information si les identifiants envoyés sont existant dans la base de donner, pour la connexion
-        [Route("{mail}/{pwd}")]
+        [Route("Connect/{mail}/{pwd}")]
         public IHttpActionResult GetValdByMailAndPwd(string mail, string pwd)
         {
             var contexte = new ToDoListEntities();
@@ -28,10 +28,10 @@ namespace ToDoList_WebAPI.Controllers
             return Ok(retour);
         }
 
-        [Route("")]
-        public IHttpActionResult Get()
-        {
-            return Ok("test");
-        }
+        //[Route("")]
+        //public IHttpActionResult Get()
+        //{
+        //    return Ok("test");
+        //}
     }
 }
