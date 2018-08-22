@@ -33,5 +33,44 @@ namespace ToDoList_WebAPI.Controllers
             return Ok(task);
             //return Ok(toto);
         }
+
+        [Route("ADD/{task}")]
+        public IHttpActionResult PostAdd(Tasks task)
+        {
+            var contexte = new ToDoListEntities();
+            contexte.Tasks.Add(task);
+            contexte.SaveChanges();
+            return Ok();
+        }
+
+        //[Route("EDIT/{task}")]
+        //public IHttpActionResult PostEdit(Tasks task)
+        //{
+        //    var contexte = new ToDoListEntities();
+        //    var taskEdit = contexte.Tasks.Where(n => n.ID == task.ID).FirstOrDefault();
+        //    taskEdit.TaskState = task.TaskState;
+        //    taskEdit.Note = task.Note;
+        //    taskEdit.DeadLine = task.DeadLine;
+        //    taskEdit.TaskState = task.TaskState;
+
+        //    contexte.SaveChanges();
+        //    return Ok();
+        //}
+
+        [Route("DEL/{ID}")]
+        public IHttpActionResult Delete(int ID)
+        {
+            var contexte = new ToDoListEntities();
+            Tasks task = contexte.Tasks.Where(n => n.ID == ID).FirstOrDefault();
+            List<Comments> comments = contexte.Comments.Where(n => n.IDTask == ID).ToList();
+            foreach (var item in comments)
+            {
+                contexte.Comments.Remove(item);
+            }
+            //task.Users1 = new List<Users>();
+            contexte.Tasks.Remove(task);
+            contexte.SaveChanges();
+            return Ok();
+        }
     }
 }
