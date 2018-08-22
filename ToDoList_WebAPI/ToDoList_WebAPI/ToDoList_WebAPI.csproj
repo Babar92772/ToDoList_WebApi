@@ -209,6 +209,7 @@
       <DependentUpon>BDD_ToDoList.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TaskApiController.cs" />
     <Compile Include="Controllers\UserConnexionController.cs" />
     <Compile Include="Controllers\UserApiController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -299,6 +300,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\TaskApi\" />
     <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>

@@ -23,6 +23,7 @@ namespace ToDoList_WebAPI
     
         public int ID { get; set; }
         public string TaskState { get; set; }
+        public Nullable<System.DateTime> CreateDate { get; set; }
         public Nullable<System.DateTime> DeadLine { get; set; }
         public string Note { get; set; }
         public int IDUserCreator { get; set; }
