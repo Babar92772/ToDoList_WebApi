@@ -10,17 +10,19 @@ namespace ToDoList_WebAPI.Controllers
     public class TaskApiController : ApiController
     {
         // GET: TaskApi
-        [Route("")]
-        public IHttpActionResult Get()
+        [Route("All")]
+        public IHttpActionResult GetAll()
         {
             var contexte = new ToDoListEntities();
-            //var toto = "";
             var tasks = contexte.Tasks.OrderBy(n => n.ID).ToList();
+
+            //var toto = "";
             //foreach (var item in tasks)
             //{
             //    toto += " / " + "{id: " + item.ID + ", Note: " + item.Note + ", State: " + item.TaskState + " }";
             //}
             //return Ok(toto);
+
             return Ok(tasks);
         }
 
@@ -29,9 +31,11 @@ namespace ToDoList_WebAPI.Controllers
         {
             var contexte = new ToDoListEntities();
             var task = contexte.Tasks.Where(n => n.ID == ID).FirstOrDefault();
+
             //var toto = "{id: " + task.ID + ", Note: " + task.Note + ", State: " + task.TaskState + " }";
-            return Ok(task);
             //return Ok(toto);
+
+            return Ok(task);
         }
 
         [Route("ADD/{task}")]
@@ -61,13 +65,13 @@ namespace ToDoList_WebAPI.Controllers
         public IHttpActionResult Delete(int ID)
         {
             var contexte = new ToDoListEntities();
-            Tasks task = contexte.Tasks.Where(n => n.ID == ID).FirstOrDefault();
+            var task = contexte.Tasks.Where(n => n.ID == ID).FirstOrDefault();
             List<Comments> comments = contexte.Comments.Where(n => n.IDTask == ID).ToList();
             foreach (var item in comments)
             {
                 contexte.Comments.Remove(item);
             }
-            //task.Users1 = new List<Users>();
+            
             contexte.Tasks.Remove(task);
             contexte.SaveChanges();
             return Ok();
