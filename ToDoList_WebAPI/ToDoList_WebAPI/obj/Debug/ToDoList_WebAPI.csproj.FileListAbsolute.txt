@@ -204,3 +204,6 @@ C:\Users\Diginamic\Desktop\Formation\ToDoList\ToDoList_WebApi\ToDoList_WebAPI\To
 C:\Users\Diginamic\Desktop\Formation\ToDoList\ToDoList_WebApi\ToDoList_WebAPI\ToDoList_WebAPI\bin\Microsoft.AI.Web.xml
 C:\Users\Diginamic\Desktop\Formation\ToDoList\ToDoList_WebApi\ToDoList_WebAPI\ToDoList_WebAPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Diginamic\Desktop\Formation\ToDoList\ToDoList_WebApi\ToDoList_WebAPI\ToDoList_WebAPI\obj\Debug\ToDoList_WebAPI.csproj.CopyComplete
+C:\Users\Diginamic\Desktop\Formation\ToDoList\ToDoList_WebApi\ToDoList_WebAPI\ToDoList_WebAPI\bin\System.Web.Cors.dll
+C:\Users\Diginamic\Desktop\Formation\ToDoList\ToDoList_WebApi\ToDoList_WebAPI\ToDoList_WebAPI\bin\System.Web.Http.Cors.dll
+C:\Users\Diginamic\Desktop\Formation\ToDoList\ToDoList_WebApi\ToDoList_WebAPI\ToDoList_WebAPI\bin\System.Web.Http.Cors.xml
