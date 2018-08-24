@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="690557a96fca49fabeb69c272af1e20c" Name="Diagram1">
+        <EntityTypeShape EntityType="ToDoListWebAPI20180823030718_dbModel.Comments" Width="1.5" PointX="5.625" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToDoListWebAPI20180823030718_dbModel.Tasks" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ToDoListWebAPI20180823030718_dbModel.Users" Width="1.5" PointX="3.25" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="ToDoListWebAPI20180823030718_dbModel.FK__Comments__IDTask__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="ToDoListWebAPI20180823030718_dbModel.FK__Comments__IDUser__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="ToDoListWebAPI20180823030718_dbModel.FK__Tasks__IDUserCre__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="ToDoListWebAPI20180823030718_dbModel.Task_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
