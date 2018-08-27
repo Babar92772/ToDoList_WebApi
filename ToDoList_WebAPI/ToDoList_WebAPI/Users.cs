@@ -23,7 +23,7 @@ namespace ToDoList_WebAPI
         }
     
         public int ID { get; set; }
-        public string Speudo { get; set; }
+        public string Pseudo { get; set; }
         public string Mail { get; set; }
         public string Pwd { get; set; }
     

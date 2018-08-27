@@ -7,16 +7,16 @@ using System.Web.Http.Cors;
 
 namespace ToDoList_WebAPI.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api/UserConnexion")]
     public class UserConnexionController : ApiController
     {
         //Retourne l'information si les identifiants envoyés sont existant dans la base de donner, pour la connexion
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
         [Route("Connect/{identifiant}/{pwd}")]
         public IHttpActionResult GetValdByMailAndPwd(string identifiant, string pwd)
         {
-            var contexte = new ToDoListEntities();
-            var User = contexte.Users.Where(n => n.Mail == identifiant | n.Speudo == identifiant & n.Pwd == pwd).FirstOrDefault();
+            var contexte = new ToDoListWebAPI20180823030718_dbEntities();
+            var User = contexte.Users.Where(n => n.Mail == identifiant | n.Pseudo == identifiant & n.Pwd == pwd).FirstOrDefault();
             //bool retour;
             //if (User == null)
             //{
