@@ -17,22 +17,7 @@ namespace ToDoList_WebAPI.Controllers
         {
             var contexte = new ToDoListWebAPI20180823030718_dbEntities();
             var User = contexte.Users.Where(n => n.Mail == identifiant | n.Pseudo == identifiant & n.Pwd == pwd).FirstOrDefault();
-            //bool retour;
-            //if (User == null)
-            //{
-            //    retour = false;
-            //}
-            //else
-            //{
-            //    retour = true;
-            //}
             return Ok(User);
         }
-
-        //[Route("")]
-        //public IHttpActionResult Get()
-        //{
-        //    return Ok("test");
-        //}
     }
 }

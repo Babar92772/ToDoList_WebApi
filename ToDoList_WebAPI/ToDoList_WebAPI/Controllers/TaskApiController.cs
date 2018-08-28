@@ -14,7 +14,6 @@ using Newtonsoft.Json;
 
 namespace ToDoList_WebAPI.Controllers
 {
-    
     [RoutePrefix("api/TaskApi")]
     //[DataContract]
     public class TaskApiController : ApiController
@@ -116,12 +115,12 @@ namespace ToDoList_WebAPI.Controllers
         //}
 
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        [Route("DEL/{ID}")]
-        public IHttpActionResult Delete(int ID)
+        [Route("DEL/{id}")]
+        public IHttpActionResult Delete(int id)
         {
             var contexte = new ToDoListWebAPI20180823030718_dbEntities();
-            var task = contexte.Tasks.Where(n => n.ID == ID).FirstOrDefault();
-            List<Comments> comments = contexte.Comments.Where(n => n.IDTask == ID).ToList();
+            var task = contexte.Tasks.Where(n => n.ID == id).FirstOrDefault();
+            List<Comments> comments = contexte.Comments.Where(n => n.IDTask == id).ToList();
             foreach (var item in comments)
             {
                 contexte.Comments.Remove(item);
